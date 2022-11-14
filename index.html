@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FingerLock - Inicio</title>
+
+  <link rel="shortcut icon" href="./resources/icon.png">
+  <!--Vinculamos css-->
+  <link rel="stylesheet" href="style.css">
+  <!--Vinculamos js-->
+  <script src="./main.js" type="module"></script>
+  <!--Exportamos bootstrap-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <!--Exportamos toastfy(alertas)-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!--Exportamos AOA library-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--Barra de navegacion-->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <img class="navbar-img" src="./resources/icon.png">
+      <a class="navbar-brand" href="index.html">FingerLock</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item sin-log">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#InicSess">Inicio sesión</a>
+          </li>
+          <li class="nav-item sin-log">
+            <a class="nav-link nav-item-register" href="#" data-bs-toggle="modal"
+              data-bs-target="#registerModal">Pruebálo gratis</a>
+          </li>
+          <li class="nav-item con-log">
+            <a class="nav-link " href="#" id="cerrarSesion">Cerrar sesión</a>
+          </li>
+          <li class="nav-item con-log">
+            <a class="nav-link " href="#" id="cerrarSesion">Mi cuenta</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--Fin barra de navegacion-->
+  <!--Formulario set pass-->
+  <form class="container con-log" id="form-pass">
+    <div data-aos="fade-up-left">
+      <h1>Set password alarm</h1>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" pattern="[ 0-9a-dA-D]*"
+          placeholder="Password">
+        <label for="floatingPassword">Password</label>
+        <div class="errorMSG1">Solo se permite [A-D] [a-d] [0-9]</div>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" id="btn">Enviar datos</button>
+      </div>
+    </div>
+  </form>
+  <!--Fin del formulario set pass-->
+  <!--Inicio Session Modal -->
+  <div class="modal fade" id="InicSess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color:black">
+          <form id="login-form">
+            <label for="email">Nombre (opcional):</label>
+            <input type="text" id="isname" class="form-control mb-3" placeholder="Ingrese su nombre (opcional)">
+            <label for="email">Email:</label>
+            <input type="email" id="isemail" class="form-control mb-3" placeholder="Ingrese su mail" required>
+            <label for="pass">Contraseña:</label>
+            <input type="password" id="ispass" class="form-control mb-3" placeholder="Ingrese su password" required>
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#Recovery">¿Olvidaste tu contraseña?</a>
+            <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Fin InicSession Modal-->
+  <!--PassRecovery Modal -->
+  <div class="modal fade" id="Recovery" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel-recovery">Recuperar contraseña</h1>
+          <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color:black">
+          <form id="recovery-login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="isrecoveryemail" class="form-control mb-3" placeholder="Ingrese su mail" required>
+            <button type="submit" class="btn btn-secondary">Enviar email</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Fin revoreyPass Modal-->
+  <!--Registro Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitar información</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color:black">
+          <form id="registrer-form">
+            <label for="username">Nombre:</label>
+            <input type="text" class="form-control mb-3" onkeypress="return check(event)" id="register-nombre"
+              placeholder="Ingrese su nombre" required>
+            <label for="email">Email:</label>
+            <input type="email" class="form-control mb-3" id="register-email" placeholder="Ingrese su mail" required>
+            <label for="País">País de residencia:</label>
+            <select class="form-select" aria-label="Default select example" aria-placeholder="sñe">
+              <option selected>Argentina</option>
+              <option value="1">Perú</option>
+              <option value="2">Brasil</option>
+              <option value="3">otros</option>
+            </select>
+            <label for="localidad">Localidad: </label>
+            <input type="text" class="form-control mb-3" onkeypress="return check(event)" id="register-localidad"
+              placeholder="Ingrese su localidad" required>
+            <button type="submit" class="btn btn-primary">Enviar mis datos</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Fin Registro Modal-->
+  <!--Intento de inicio xd-->
+  <section>
+    <div class="texto-intro sin-log">
+      <div class="text-intro-img"><img src="./resources/security.jpg" align="right" alt=""></div>
+      <h1>
+        <span id="text-first">Sistema de seguridad para tu hogar</span>
+      </h1>
+      <h2>
+        <span id="text-second">FingerLock® te ayudará a conectar la
+          seguridad de tu casa con tu dispositivo</span>
+      </h2>
+      <p><a class="btn-empezar-ahora" href="./secondaryPages/costsPage.html">Comparar costos</a></p>
+    </div>
+  </section>
+
+  <!--Fin de inicio-->
+  <!--Inicio del THANKSITE-->
+  <div class="slide-thanks-site">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button bajo" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button bajo" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <h1 class="d-block w-100">¡Gracias!</h1>
+
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Datos enviados correctamente</h5>
+            <p>Gracias por utilizar FingerLock®</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <h1 class="d-block w-100">FingerLock®</h1>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>¿Quiere ingresar otra contraseña?</h5>
+            <p><a class="links" href="index.html">Click aquí </a>para ingresr nueva contraseña</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!--Fin del THANKSITE-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!--Scrip para verificar-->
+    <script>
+      function check(e, param) {
+        tecla = (document.all) ? e.keyCode : e.which;
+
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla == 8) {
+          return true;
+        }
+
+        // Patrón de entrada, en este caso solo acepta numeros y letras
+        patron = /[A-Za-z]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
+      }
+    </script>
+</body>
+
+</html>
