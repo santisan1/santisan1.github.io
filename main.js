@@ -6,7 +6,7 @@ import "./app/recuperarPass.js"
 import "./app/emailAlarm.js"
 import "./app/getToken.js"
 import "./app/onAuthChange.js"
-import "./Firebase-firestore-Data/mainFireStore.js"
-import "./Firebase-firestore-Data/firebase-firestore.js"
+// import "./Firebase-firestore-Data/mainFireStore.js"
+// import "./Firebase-firestore-Data/firebase-firestore.js"
 
 

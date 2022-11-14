@@ -9,7 +9,9 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-
+.nav{
+    position: fixed;
+}
 .boton {
     margin-top: 100px;
 }

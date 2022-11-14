@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
   <!--Exportamos toastfy(alertas)-->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  <!--Exportamos AOA library-->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -72,7 +70,7 @@
   </form>
   <!--Fin del formulario set pass-->
   <!--Inicio Session Modal -->
-  <div class="modal fade" id="InicSess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade con-log" id="InicSess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -81,8 +79,6 @@
         </div>
         <div class="modal-body" style="color:black">
           <form id="login-form">
-            <label for="email">Nombre (opcional):</label>
-            <input type="text" id="isname" class="form-control mb-3" placeholder="Ingrese su nombre (opcional)">
             <label for="email">Email:</label>
             <input type="email" id="isemail" class="form-control mb-3" placeholder="Ingrese su mail" required>
             <label for="pass">Contraseña:</label>
@@ -95,25 +91,6 @@
     </div>
   </div>
   <!--Fin InicSession Modal-->
-  <!--PassRecovery Modal -->
-  <div class="modal fade" id="Recovery" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel-recovery">Recuperar contraseña</h1>
-          <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" style="color:black">
-          <form id="recovery-login-form">
-            <label for="email">Email:</label>
-            <input type="email" id="isrecoveryemail" class="form-control mb-3" placeholder="Ingrese su mail" required>
-            <button type="submit" class="btn btn-secondary">Enviar email</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Fin revoreyPass Modal-->
   <!--Registro Modal -->
   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -202,9 +179,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      AOS.init();
-    </script>
     <!--Scrip para verificar-->
     <script>
       function check(e, param) {

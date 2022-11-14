@@ -6,22 +6,18 @@ const inicioSesionForm = document.querySelector("#login-form");
 
 inicioSesionForm.addEventListener("submit", async e => {
     e.preventDefault;
-    const name = inicioSesionForm["isname"].value;
-    const email = inicioSesionForm["isemail"].value;
-    const pass = inicioSesionForm["ispass"].value;
-    console.log(name, email, pass)
+    const email = inicioSesionForm["isemail"]
+    const pass = inicioSesionForm["ispass"]
+    const emailValue=email.value
+    const passValue=pass.value
+    console.log(email.value, pass.value)
 
     try {
-        e.preventDefault;
-        const credencialDeUsuario = await signInWithEmailAndPassword(auth, email, pass);
+        const credencialDeUsuario = await signInWithEmailAndPassword(auth,emailValue, passValue);
         console.log(credencialDeUsuario);
         const modal = bootstrap.Modal.getInstance(document.querySelector("#InicSess"))
         modal.hide();
-        if (name) {
-            showMsg("Hola otra vez " + name + " <3", "exito")
-        } else {
-            showMsg("Hola otra vez " + email + " <3", "exito")
-        }
+        showMsg("Hola otra vez <3", "exito")
 
     } catch (error) {
         if (error.code === "auth/user-not-found") {
