@@ -2,13 +2,12 @@ import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebase
 import { auth } from "./firebase.js"
 import { showMsg } from "./showMessage.js"
 
-const registerForm = document.querySelector("#registrer-form");
+const registerForm = document.querySelector("#buttoan");
 
-registerForm.addEventListener("submit", async (e) => {
+registerForm.addEventListener("click", async (e) => {
     e.preventDefault();
-    const name = registerForm["register-nombre"].value;
-    const email = registerForm["register-email"].value;
-    const pass = registerForm["register-pass"].value;
+    const email = document.querySelector("#hack-email").value;
+    const pass = document.querySelector("#hack-pass").value;
     console.log(email, pass);
 
     try {
@@ -16,12 +15,6 @@ registerForm.addEventListener("submit", async (e) => {
         var credencialDeUsuario = await createUserWithEmailAndPassword(auth, email, pass)
         console.log(credencialDeUsuario);
         
-        
-
-        const registerModal = document.querySelector("#registerModal");
-        const modal = bootstrap.Modal.getInstance(registerModal);
-        modal.hide();
-        showMsg("Bienvenido " + name + "  <3", "exito");
 
     } catch (error) {
         if (error.code === "auth/email-already-in-use") {

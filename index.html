@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FingerLock - Inicio</title>
 
+  <script data-require="jquery@2.2.4" data-semver="2.2.4"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <link rel="shortcut icon" href="./resources/icon.png">
   <!--Vinculamos css-->
   <link rel="stylesheet" href="style.css">
@@ -39,7 +41,7 @@
               data-bs-target="#registerModal">Pruebálo gratis</a>
           </li>
           <li class="nav-item con-log">
-            <a class="nav-link " href="#" id="cerrarSesion">Cerrar sesión</a>
+            <a class="nav-link " href="#" id="cerrarSesion1">Cerrar sesión</a>
           </li>
           <li class="nav-item con-log">
             <a class="nav-link " href="#" id="cerrarSesion">Mi cuenta</a>
@@ -63,14 +65,24 @@
         <label for="floatingPassword">Password</label>
         <div class="errorMSG1">Solo se permite [A-D] [a-d] [0-9]</div>
       </div>
-      <div>
-        <button type="submit" class="btn btn-primary" id="btn">Enviar datos</button>
+      <div class="form-check form-check-inline">
+        <form method="post" id="form-check">
+          <input class="form-check-input" type="checkbox" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Press=Nueva huella // Unpress=Comparar
+          </label>
+        </form>
       </div>
-    </div>
+      <div>
+        <div>
+          <button type="submit" class="btn btn-primary" id="btn">Enviar datos</button>
+        </div>
+      </div>
   </form>
   <!--Fin del formulario set pass-->
   <!--Inicio Session Modal -->
-  <div class="modal fade con-log" id="InicSess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="InicSess" tabindex="-1" aria-labelledby="exampleModalLabel" style"display:none;"
+    aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -83,7 +95,6 @@
             <input type="email" id="isemail" class="form-control mb-3" placeholder="Ingrese su mail" required>
             <label for="pass">Contraseña:</label>
             <input type="password" id="ispass" class="form-control mb-3" placeholder="Ingrese su password" required>
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#Recovery">¿Olvidaste tu contraseña?</a>
             <button type="submit" class="btn btn-primary">Iniciar sesion</button>
           </form>
         </div>
@@ -100,32 +111,60 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="color:black">
-          <form id="registrer-form">
+          <form id="form">
             <label for="username">Nombre:</label>
             <input type="text" class="form-control mb-3" onkeypress="return check(event)" id="register-nombre"
-              placeholder="Ingrese su nombre" required>
+              name="name" placeholder="Ingrese su nombre" required>
             <label for="email">Email:</label>
-            <input type="email" class="form-control mb-3" id="register-email" placeholder="Ingrese su mail" required>
+            <input type="email" class="form-control mb-3" id="register-email" placeholder="Ingrese su mail" name="email"
+              required>
             <label for="País">País de residencia:</label>
-            <select class="form-select" aria-label="Default select example" aria-placeholder="sñe">
-              <option selected>Argentina</option>
-              <option value="1">Perú</option>
-              <option value="2">Brasil</option>
-              <option value="3">otros</option>
+            <select class="form-select" aria-label="Default select example" aria-placeholder="sñe" name="provincia">
+              <option value="Buenos Aires (provincia)" selected>Buenos Aires (provincia)</option>
+              <option value="CABA">CABA</option>
+              <option value="Salta">Salta</option>
+              <option value="Córdoba">Córdoba</option>
+              <option value="San Luis">San Luis</option>
+              <option value="Río Negro">Río Negro</option>
             </select>
             <label for="localidad">Localidad: </label>
             <input type="text" class="form-control mb-3" onkeypress="return check(event)" id="register-localidad"
-              placeholder="Ingrese su localidad" required>
-            <button type="submit" class="btn btn-primary">Enviar mis datos</button>
+              placeholder="Ingrese su localidad" name="localidad" required>
+            <input type="submit" id="buttonn" value="Send Email">
           </form>
         </div>
       </div>
     </div>
   </div>
+
   <!--Fin Registro Modal-->
+  <!--hack Modal -->
+  <div class="modal fade" id="hackModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitar información</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color:black">
+          <form id="form1">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control mb-3" id="hack-email" placeholder="Ingrese su mail" name="email"
+              required>
+            <label for="pass">Email:</label>
+            <input type="password" class="form-control mb-3" id="hack-pass" placeholder="Ingrese su mail" name="email"
+              required>
+            <input type="submit" id="buttoan" value="Send Email">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Fin hack Modal-->
   <!--Intento de inicio xd-->
-  <section>
-    <div class="texto-intro sin-log">
+  <section class="sin-log">
+    <div class="texto-intro ">
       <div class="text-intro-img"><img src="./resources/security.jpg" align="right" alt=""></div>
       <h1>
         <span id="text-first">Sistema de seguridad para tu hogar</span>
@@ -137,6 +176,7 @@
       <p><a class="btn-empezar-ahora" href="./secondaryPages/costsPage.html">Comparar costos</a></p>
     </div>
   </section>
+  <a class="oculto" href="#" data-bs-toggle="modal" data-bs-target="#hackModal">.</a>
 
   <!--Fin de inicio-->
   <!--Inicio del THANKSITE-->
@@ -194,7 +234,8 @@
         tecla_final = String.fromCharCode(tecla);
         return patron.test(tecla_final);
       }
-    </script>
+    //</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
 
 </html>

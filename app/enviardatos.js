@@ -32,7 +32,7 @@ const insertData = (userId, displayName, userPhoto) => {
     console.log("Entre a insert data");
     container.forEach(link => link.style.display = "block")
     thankssite.forEach(link => link.style.display = "none")
-    set(ref(db, "\User" + userId), {
+    set(ref(db, "\User"), {
 
 
         userId: userId,

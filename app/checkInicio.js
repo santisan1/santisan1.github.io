@@ -1,12 +1,9 @@
-const sinlog = document.querySelectorAll(".sin-log")
-const conlog = document.querySelectorAll(".con-log")
+export let checkInicio = user => {
 
-export const checkInicio = user =>{
-    if (user){
-        
+    if (user) {
         sinlog.forEach(link => link.style.display = "none")
         conlog.forEach(link => link.style.display = "block")
-    }else{
+    } else {
         sinlog.forEach(link => link.style.display = "block")
         conlog.forEach(link => link.style.display = "none")
     }

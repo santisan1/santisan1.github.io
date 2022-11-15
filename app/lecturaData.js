@@ -8,18 +8,16 @@ let emailValue;
 let send = 1
 let sand = 1
 
-const readData = (userId) => {
+const readData = () => {
     const dbref = ref(db);
-    const user_id = userId
-    console.log(userId)
    
-    get(child(dbref, "\User" + user_id)
+    get(child(dbref, "\User")
 
     ).then((snapshot) => {
 
         alarmVal = snapshot.val().alarma;
         emailValue = snapshot.val().email;
-        return user_id
+        
     });
     if (alarmVal == 1 && sand == 1) {
         // sendEmail();
@@ -32,6 +30,6 @@ const readData = (userId) => {
         send = 0;
 
     }
-    return userId
 }
+setInterval(readData,500)
 export default readData;

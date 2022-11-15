@@ -1,14 +1,27 @@
-export function sendEmail() {
-    Email.send({
-      Host: "smtp.gmail.com",
-      Username: "pruebaphyton3@gmail.com",
-      Password: "doxfgbtnerbkzuvv",
-      To: "sromeroetrr@gmail.com",
-      From: "pruebaphyton3@gmail.com",
-      Subject: "Sending Email using javascript",
-      Body: "Well that was easy!!",
-    })
-      .then(function (message) {
-        alert("mail sent successfully")
-      });
-    }
+import { showMsg } from "./showMessage.js";
+
+emailjs.init('mFhlhc9qMI8ZouO58')
+const btn = document.getElementById('buttonn');
+
+document.getElementById('form')
+    .addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        btn.value = 'Sending...';
+
+        const serviceID = 'default_service';
+        const templateID = 'template_opgd53qa';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Send Email';
+                showMsg("Espere contacto del servicio técnico", "exito")
+                const registerModal = document.querySelector("#registerModal");
+                const modal = bootstrap.Modal.getInstance(registerModal);
+                modal.hide();
+
+            }, (err) => {
+                btn.value = 'Send Email';
+                alert(JSON.stringify(err));
+            });
+    });

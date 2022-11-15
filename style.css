@@ -25,7 +25,9 @@ body {
 .errorMSG1 {
     display: none;
 }
-
+#InicSess{
+    display: none;
+}
 :invalid~.errorMSG1 {
     display: block;
     width: 180px;
