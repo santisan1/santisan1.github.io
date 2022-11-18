@@ -1,7 +1,7 @@
 import { showMsg } from "./showMessage.js";
 
 emailjs.init('mFhlhc9qMI8ZouO58')
-const btn = document.getElementById('buttonn');
+const btn = document.getElementById('button');
 
 document.getElementById('form')
     .addEventListener('submit', function (event) {

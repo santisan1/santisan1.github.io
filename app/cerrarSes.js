@@ -4,7 +4,7 @@ import { showMsg } from "./showMessage.js";
 
 
 
-const cerrarSes = document.querySelector("#cerrarSesion1");
+const cerrarSes = document.querySelector("#cerrarSesion");
 cerrarSes.addEventListener("click", async ()=>{
     await signOut(auth);
 

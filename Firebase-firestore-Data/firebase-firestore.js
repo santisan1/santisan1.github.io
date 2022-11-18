@@ -13,10 +13,16 @@ export const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore();
 
-export const savePass = (email, pass) => {
+const savePass = (name, email, pass, userId, photoURL, hora) => {
     console.log("enviado")
     addDoc(collection(db, "Users"), {
-        email, pass
+        name: name,
+        email: email,
+        password: pass,
+        userId: userId,
+        fotoURL: photoURL,
+        hora: hora
 
     })
 }
+export default savePass;

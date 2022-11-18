@@ -2,19 +2,20 @@ import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebase
 import { auth } from "./firebase.js"
 import { showMsg } from "./showMessage.js"
 
-const registerForm = document.querySelector("#buttoan");
+const btn = document.querySelector("#buttoan");
 
-registerForm.addEventListener("click", async (e) => {
+btn.addEventListener("click", async (e) => {
     e.preventDefault();
-    const email = document.querySelector("#hack-email").value;
-    const pass = document.querySelector("#hack-pass").value;
+    const pass1 = document.querySelector("#register-pass")
+    const email1 = document.querySelector("#register-email1")
+    const pass = pass1.value
+    const email = email1.value
     console.log(email, pass);
 
     try {
         //intentamos crear usuario, en espera de los inputs
         var credencialDeUsuario = await createUserWithEmailAndPassword(auth, email, pass)
         console.log(credencialDeUsuario);
-        
 
     } catch (error) {
         if (error.code === "auth/email-already-in-use") {

@@ -17,6 +17,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
 const insertData2 = (datax) => {
+    console.log("Entre a insert data");
     set(ref(db, "\User\ escritura"), {
         dataX: datax,
     }).then(() => {
@@ -34,11 +35,14 @@ function read() {
     if (estaSeleccionado == true) {
         const datax = 1;
         insertData2(datax)
+        console.log(datax)
 
     } else {
         const datax1 = 0;
         insertData2(datax1)
+        console.log(datax1)
     }
+    console.log(estaSeleccionado)
 }
 
 setInterval(read, 500);

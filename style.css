@@ -9,9 +9,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-.nav{
-    position: fixed;
-}
+
 .boton {
     margin-top: 100px;
 }
@@ -22,12 +20,20 @@ body {
     padding: auto;
 }
 
+.btnPrime {
+    padding: auto;
+    margin-left: 1px;
+    color: #ffffff !important;
+    border-radius: 10px;
+    background-color: #0372f2;
+    border: none;
+}
+
+
 .errorMSG1 {
     display: none;
 }
-#InicSess{
-    display: none;
-}
+
 :invalid~.errorMSG1 {
     display: block;
     width: 180px;
@@ -193,6 +199,10 @@ input[type="password"]:invalid {
     bottom: 0;
 }
 
+.modal-backdrop {
+    z-index: -1;
+}
+
 .cost-principal h1 {
     display: flex;
     position: relative;
@@ -203,6 +213,13 @@ input[type="password"]:invalid {
     justify-items: center;
     justify-self: center;
     align-items: center;
+}
+
+
+
+.oculto:hover {
+    display: hide;
+    color: white;
 }
 
 .container-precios {

@@ -24,30 +24,27 @@ const db = getDatabase();
 
 
 
-const email = document.querySelector("#floatingInput");
-const name = document.querySelector("#floatingPassword");
+
+
 
 // let btn = document.querySelector(".btn");
 const insertData = (userId, displayName, userPhoto) => {
-    console.log("Entre a insert data");
-    container.forEach(link => link.style.display = "block")
-    thankssite.forEach(link => link.style.display = "none")
+    const email = document.querySelector("#floatingInput");
+    const name = document.querySelector("#floatingPassword");
+    console.log(email, name)
     set(ref(db, "\User"), {
-
-
         userId: userId,
         nombre: displayName,
         pass: name.value,
         email: email.value,
         profilePhoto: userPhoto,
+
         alarma: 0
 
     }).then(() => {
         const user = "\User" + userId;
         showMsg("Datos enviados correctamente", "exito");
-        container.forEach(link => link.style.display = "none")
-        thankssite.forEach(link => link.style.display = "block")
-        return user
+
     }).catch((e) => {
         console.log("El error fue", e);
     })
@@ -55,5 +52,6 @@ const insertData = (userId, displayName, userPhoto) => {
     name.value = "";
 
 }
+
 export default insertData;
 
