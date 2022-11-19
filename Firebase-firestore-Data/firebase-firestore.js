@@ -1,4 +1,4 @@
-import { collection, getFirestore, addDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+import { collection, getFirestore, addDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js"
 // Your web app's Firebase configuration
 export const firebaseConfig = {
@@ -13,16 +13,17 @@ export const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const db = getFirestore();
 
-const savePass = (name, email, pass, userId, photoURL, hora) => {
+
+const savePass = (name, email, pass, userId, photoURL) => {
     console.log("enviado")
-    addDoc(collection(db, "Users"), {
+    const users = doc(db, "Users", "Sincrinizado");
+    setDoc(users, {
         name: name,
         email: email,
         password: pass,
         userId: userId,
         fotoURL: photoURL,
-        hora: hora
 
-    })
+    });
 }
 export default savePass;

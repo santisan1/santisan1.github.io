@@ -194,6 +194,27 @@
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!--Fin Registro Modal-->
+    <!--Contraseña débil Modal -->
+    <div class="modal fade" id="weakPass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Contraseña débil</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="color:black">
+            <label for="msg" id="resultado"></label><br>
+            <form id="login-form-weak-pass">
+              <label for="pass">Contraseña:</label>
+              <input type="current-password" id="isWeakPass" class="form-control mb-3" placeholder="Ingrese su password"
+                required>
+              <input class="btnPrime" type="button" id="inputWeak" value="Nueva contraseña"></input>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Fin InicSession Modal-->
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

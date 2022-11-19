@@ -1,3 +1,4 @@
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 // import "./app/registro.js"
 import "./app/cerrarSes.js"
 import "./app/inicioSesion.js"

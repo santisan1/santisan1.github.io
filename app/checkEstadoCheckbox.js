@@ -17,7 +17,6 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
 const insertData2 = (datax) => {
-    console.log("Entre a insert data");
     set(ref(db, "\User\ escritura"), {
         dataX: datax,
     }).then(() => {

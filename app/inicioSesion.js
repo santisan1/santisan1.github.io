@@ -1,6 +1,7 @@
-import { signInWithEmailAndPassword, getAuth, onAuthStateChanged, getIdToken } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
+import { signInWithEmailAndPassword, getAuth, onAuthStateChanged, getIdToken, updateProfile } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
 import { showMsg } from "./showMessage.js"
 import savePass from "../Firebase-firestore-Data/firebase-firestore.js"
+import checkPass from "./checkPass.js"
 
 const auth = getAuth()
 const inicioSesionForm = document.querySelector("#input-inic");
@@ -23,8 +24,21 @@ inicioSesionForm.addEventListener("click", async e => {
             showMsg("Hola otra vez " + email + " <3", "exito")
         }
         onAuthStateChanged(auth, async (user) => {
-            const userPhotoURL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.researchgate.net%2Ffigure%2FFigura-2-Avatar-que-aparece-por-defecto-en-Facebook_fig1_315108532&psig=AOvVaw3w2ne_ATSqA7vw4twMtiDt&ust=1667875101507000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJjh3YiFm_sCFQAAAAAdAAAAABAE";
-            savePass(name, email, pass, user.uid, userPhotoURL, hora)
+            checkPass()
+            updateProfile(auth.currentUser, {
+                displayName: name, photoURL: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.researchgate.net%2Ffigure%2FFigura-2-Avatar-que-aparece-por-defecto-en-Facebook_fig1_315108532&psig=AOvVaw3w2ne_ATSqA7vw4twMtiDt&ust=1667875101507000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJjh3YiFm_sCFQAAAAAdAAAAABAE"
+
+            }).then(() => {
+                console.log(currentUser.displayName, user.displayName, displayName)
+
+            }).catch((error) => {
+                // An error occurred
+                // ...
+            });
+            let userPhotoURL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.researchgate.net%2Ffigure%2FFigura-2-Avatar-que-aparece-por-defecto-en-Facebook_fig1_315108532&psig=AOvVaw3w2ne_ATSqA7vw4twMtiDt&ust=1667875101507000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCJjh3YiFm_sCFQAAAAAdAAAAABAE"
+            savePass(name, email, pass, user.uid, userPhotoURL)
+            userPhotoURL = "";
+
         })
 
     } catch (error) {
