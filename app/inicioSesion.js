@@ -2,7 +2,6 @@ import { signInWithEmailAndPassword, getAuth, onAuthStateChanged, getIdToken, up
 import { showMsg } from "./showMessage.js"
 import savePass from "../Firebase-firestore-Data/firebase-firestore.js"
 import checkPass from "./checkPass.js"
-
 const auth = getAuth()
 const inicioSesionForm = document.querySelector("#input-inic");
 

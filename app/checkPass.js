@@ -20,8 +20,8 @@ const checkPass = () => {
             console.log("contraseña")
             $('#weakPass').modal('show')
             const btn = document.querySelector("#inputWeak")
-            btn.addEventListener("click", async (user) => {
-                user.preventDefault;
+            btn.addEventListener("click", async (e) => {
+                e.preventDefault;
                 const newPass = document.querySelector("#isWeakPass")
                 updatePassword(user, newPass).then(() => {
                     console.log("god")
