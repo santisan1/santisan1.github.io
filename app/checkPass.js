@@ -1,9 +1,9 @@
 import { collection, getFirestore, addDoc, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 import { getAuth, updatePassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js"
+import cambiarPass from "./updatePass.js";
 
-const auth = getAuth();
-const user = auth.currentUser;
+
 
 const db = getFirestore();
 const docRef = doc(db, "Users", "Sincrinizado")
@@ -19,22 +19,17 @@ const checkPass = () => {
         if (pass == "123456") {
             console.log("contraseña")
             $('#weakPass').modal('show')
+            const newPass = document.querySelector("#isWeakPass")
             const btn = document.querySelector("#inputWeak")
-            btn.addEventListener("click", async (e) => {
-                e.preventDefault;
-                const newPass = document.querySelector("#isWeakPass")
-                updatePassword(user, newPass).then(() => {
-                    console.log("god")
-                }).catch((error) => {
-                    console.log(error)
-                });
+            btn.addEventListener("click", () => {
+                cambiarPass(newPass)
 
             })
 
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
         }
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
     }
 }
 export default checkPass;
